@@ -21,6 +21,9 @@ app.use('/api/transactions', require('./routes/transactions'));
 const jobRoutes = require('./routes/job');
 app.use('/api/jobs', jobRoutes);
 
+const taskRoutes = require('./routes/tasks');
+app.use('/', taskRoutes);
+
 // Root endpoint
 app.get('/', (req, res) => {
   res.send('Finance Tracker Job API is running');
