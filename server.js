@@ -18,5 +18,13 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/transactions', require('./routes/transactions'));
 
+const jobRoutes = require('./routes/job');
+app.use('/api/jobs', jobRoutes);
+
+// Root endpoint
+app.get('/', (req, res) => {
+  res.send('Finance Tracker Job API is running');
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
